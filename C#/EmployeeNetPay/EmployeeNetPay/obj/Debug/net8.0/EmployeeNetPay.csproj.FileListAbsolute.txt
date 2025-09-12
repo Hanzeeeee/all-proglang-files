@@ -1,0 +1,14 @@
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\EmployeeNetPay.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\EmployeeNetPay.AssemblyInfoInputs.cache
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\EmployeeNetPay.AssemblyInfo.cs
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\EmployeeNetPay.csproj.CoreCompileInputs.cache
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\bin\Debug\net8.0\EmployeeNetPay.exe
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\bin\Debug\net8.0\EmployeeNetPay.deps.json
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\bin\Debug\net8.0\EmployeeNetPay.runtimeconfig.json
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\bin\Debug\net8.0\EmployeeNetPay.dll
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\bin\Debug\net8.0\EmployeeNetPay.pdb
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\EmployeeNetPay.dll
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\refint\EmployeeNetPay.dll
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\EmployeeNetPay.pdb
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\EmployeeNetPay.genruntimeconfig.cache
+C:\Users\NN721\source\repos\EmployeeNetPay\EmployeeNetPay\obj\Debug\net8.0\ref\EmployeeNetPay.dll

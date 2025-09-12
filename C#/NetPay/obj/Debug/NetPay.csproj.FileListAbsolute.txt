@@ -1,0 +1,8 @@
+Z:\NN721\NetPay\bin\Debug\NetPay.exe.config
+Z:\NN721\NetPay\bin\Debug\NetPay.exe
+Z:\NN721\NetPay\bin\Debug\NetPay.pdb
+Z:\NN721\NetPay\obj\Debug\NetPay.csproj.AssemblyReference.cache
+Z:\NN721\NetPay\obj\Debug\NetPay.csproj.CoreCompileInputs.cache
+Z:\NN721\NetPay\obj\Debug\NetPay.exe
+Z:\NN721\NetPay\obj\Debug\NetPay.pdb
+Z:\NN721\NetPay\obj\Debug\NetPay.exe.config
