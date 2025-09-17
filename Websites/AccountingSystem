@@ -1,0 +1,542 @@
+ACCOUNTING SYSTEM
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting System</title>
+    <style>
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .logo-container h2 {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            background-color:#003366;
+            ;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #003366;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #003366;
+            color: #fff;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h5 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .footer-section p, .footer-section ul {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #1a5a99;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar, .content {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="https://raw.githubusercontent.com/csps/.github/main/images/UC_LOGO.png" alt="University of Cebu">
+        <h2>CC-ACCTG21 - FINAL PROJECT</h2> 
+        <h1>MR. LEE CHUN TRANSACTION</h1>
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#chartOfAccounts">Chart of Accounts</a></li>
+                    <li><a href="#result">Trial Balance</a></li>
+                    <li><a href="#balanceSheet">Balance Sheet</a></li>
+                </ul>
+            </aside>
+
+        <div class="content">
+            <h2>Transaction Details:</h2>
+
+            <label for="transactionDate">Transaction Date:</label>
+            <input type="date" id="transactionDate" required>
+
+            <label for="accountTitle">Account Title:</label>
+            <select id="accountTitle" required>
+                <option value="Cash in Bank">Cash in Bank</option>
+                <option value="Accounts Receivable">Accounts Receivable</option>
+                <option value="Supplies Inventory">Supplies Inventory</option>
+                <option value="Furniture and Fixtures">Furniture and Fixtures</option>
+                <option value="Office Equipment">Office Equipment</option>
+                <option value="Accounts Payable">Accounts Payable</option>
+                <option value="L. Chun, Capital">L. Chun, Capital</option>
+                <option value="L. Chun, Drawing">L. Chun, Drawing</option>
+                <option value="Professional Income">Professional Income</option>
+                <option value="Rent Expense">Rent Expense</option>
+                <option value="Utilities Expense">Utilities Expense</option>
+                <option value="Salaries Expense">Salaries Expense</option>
+                <option value="Taxes and Licenses">Taxes and Licenses</option>
+            </select>
+
+            <label for="debitCredit">Debit or Credit:</label>
+            <select id="debitCredit" required>
+                <option value="Debit">Debit</option>
+                <option value="Credit">Credit</option>
+            </select>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required>
+
+            <div class="button-container">
+                <button onclick="addTransaction()">Add Transaction</button>
+                <button onclick="endTransaction()">End Transaction</button>
+            </div>
+
+            <div id="chartOfAccounts"></div>
+            <div id="result"></div>
+            <div id="balanceSheet"></div>
+
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-section footer-about">
+            <h5>About Us</h5>
+            <p>LCIT Accounting System, helping businesses streamline transactions and generate reports effortlessly.</p>
+        </div>
+        <div class="footer-section footer-contact">
+            <h5>Created by</h5>
+            <p>Group 7:</p>
+            <ul>
+                <li>Kathleen Cheryl D. Sarmiento</li>
+                <li>Kent Ryle Almario</li>
+                <li>Evitha Louise Otadoy</li>
+                <li>Adrian Amper</li>
+                <li>Christ Hanzen Rallos</li>
+                <li>Mark Oliver Abella</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2024 LCIT Services | Designed by Group 7
+    </div>
+</div>
+
+BACKEND
+
+    <script>
+        let transactions = [];
+        let accounts = {};
+
+        function addTransaction() {
+            const date = document.getElementById("transactionDate").value;
+            const accountTitle = document.getElementById("accountTitle").value;
+            const debitCredit = document.getElementById("debitCredit").value;
+            const amount = parseFloat(document.getElementById("amount").value);
+            
+            if (!date || !amount || amount <= 0) {
+                alert("Please enter valid transaction details.");
+                return;
+            }
+
+            transactions.push({ date, accountTitle, debitCredit, amount });
+
+            accounts[accountTitle] = accounts[accountTitle] || { debit: 0, credit: 0 };
+            if (debitCredit === "Debit") {
+                accounts[accountTitle].debit += amount;
+            } else {
+                accounts[accountTitle].credit += amount;
+            }
+            
+            alert("Transaction added successfully!");
+            document.getElementById("transactionDate").value = "";
+            document.getElementById("amount").value = "";
+        }
+
+        function endTransaction() {
+        if (transactions.length === 0) {
+            alert("No transactions added.");
+            return;
+        }
+        
+        const income = transactions
+            .filter(transaction => transaction.accountTitle === "Professional Income" && transaction.debitCredit === "Credit")
+            .reduce((total, transaction) => total + transaction.amount, 0);
+        
+        const expenses = transactions
+            .filter(transaction => transaction.accountTitle.includes("Expense") && transaction.debitCredit === "Debit")
+            .reduce((total, transaction) => total + transaction.amount, 0);
+        
+        const netIncome = income - expenses;
+
+        // Display the results in the specified order
+        displayChartOfAccounts();
+        displayTrialBalance();
+        displayBalanceSheet(netIncome);
+        displayIncomeStatement(income, expenses, netIncome);
+        displayOwnerEquityStatement(netIncome); 
+    }
+
+
+        function displayChartOfAccounts() {
+            const chartDiv = document.getElementById("chartOfAccounts");
+            let chartHtml = 
+                `<h3>Chart of Accounts</h3>
+                <table>
+                    <tr><th>Date</th><th>Account Title</th><th>Debit</th><th>Credit</th></tr>
+                    ${transactions.map(transaction => 
+                        `<tr>
+                            <td>${transaction.date}</td>
+                            <td>${transaction.accountTitle}</td>
+                            <td>${transaction.debitCredit === "Debit" ? transaction.amount.toLocaleString() : ""}</td>
+                            <td>${transaction.debitCredit === "Credit" ? transaction.amount.toLocaleString() : ""}</td>
+                        </tr>`
+                    ).join("")}
+                </table>`;
+            chartDiv.innerHTML = chartHtml;
+        }
+
+        function displayTrialBalance() {
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = '';
+
+        let totalDebit = 0;
+        let totalCredit = 0;
+
+        const accountOrder = [
+            "Cash in Bank",
+            "Accounts Receivable",
+            "Supplies Inventory",
+            "Furniture and Fixtures",
+            "Office Equipment",
+            "Accounts Payable",
+            "L. Chun, Capital",
+            "L. Chun, Drawing",
+            "Professional Income",
+            "Rent Expense",
+            "Utilities Expense",
+            "Salaries Expense",
+            "Taxes and Licenses"
+        ];
+
+        let trialBalanceHtml = 
+            `<h3>Trial Balance</h3>
+            <table>
+                <tr><th>Account Title</th><th>Debit</th><th>Credit</th></tr>`;
+
+        accountOrder.forEach(accountTitle => {
+            const { debit, credit } = accounts[accountTitle] || { debit: 0, credit: 0 };
+            let finalBalance = debit - credit;
+            let balanceType = finalBalance >= 0 ? 'Debit' : 'Credit';
+
+            if (finalBalance < 0) {
+                finalBalance = Math.abs(finalBalance);
+            }
+
+            totalDebit += balanceType === 'Debit' ? finalBalance : 0;
+            totalCredit += balanceType === 'Credit' ? finalBalance : 0;
+
+            trialBalanceHtml += 
+                `<tr>
+                    <td>${accountTitle}</td>
+                    <td>${balanceType === 'Debit' ? finalBalance.toLocaleString() : ''}</td>
+                    <td>${balanceType === 'Credit' ? finalBalance.toLocaleString() : ''}</td>
+                </tr>`;
+        });
+
+        trialBalanceHtml += 
+            `<tr>
+                <td><strong>Total</strong></td>
+                <td><strong>${totalDebit.toLocaleString()}</strong></td>
+                <td><strong>${totalCredit.toLocaleString()}</strong></td>
+            </tr>
+            </table>`;
+
+        resultDiv.innerHTML = trialBalanceHtml;
+    }
+
+        function displayBalanceSheet(netIncome) {
+        let balanceSheetDiv = document.getElementById("balanceSheet");
+
+        // Calculate assets from the accounts object
+        let currentAssets = {
+            "Cash in Bank": accounts["Cash in Bank"] ? accounts["Cash in Bank"].debit - accounts["Cash in Bank"].credit : 0,
+            "Supplies Inventory": accounts["Supplies Inventory"] ? accounts["Supplies Inventory"].debit - accounts["Supplies Inventory"].credit : 0
+        };
+
+        let nonCurrentAssets = {
+            "Furniture and Fixtures": accounts["Furniture and Fixtures"] ? accounts["Furniture and Fixtures"].debit - accounts["Furniture and Fixtures"].credit : 0,
+            "Office Equipment": accounts["Office Equipment"] ? accounts["Office Equipment"].debit - accounts["Office Equipment"].credit : 0
+        };
+
+        let currentLiabilities = {
+            "Accounts Payable": accounts["Accounts Payable"] ? accounts["Accounts Payable"].credit - accounts["Accounts Payable"].debit : 0
+        };
+
+        let ownerEquity = (accounts["L. Chun, Capital"] ? accounts["L. Chun, Capital"].credit : 0) -
+                        (accounts["L. Chun, Drawing"] ? accounts["L. Chun, Drawing"].debit : 0) +
+                        netIncome;
+
+        balanceSheetDiv.innerHTML = `
+            <h3>Balance Sheet</h3>
+            <h3>Statement of Financial Position (SFP)</h3>
+            <table>
+                <tr><th>Assets</th><th>Amount</th></tr>
+                <tr><td>Current Assets</td><td></td></tr>
+                ${Object.entries(currentAssets).map(([title, amount]) => 
+                    amount > 0 ? `<tr><td>&nbsp;&nbsp;&nbsp; ${title}</td><td>${amount.toLocaleString()}</td></tr>` : ''
+                ).join('')}
+                <tr><td>Noncurrent Assets</td><td></td></tr>
+                ${Object.entries(nonCurrentAssets).map(([title, amount]) => 
+                    amount > 0 ? `<tr><td>&nbsp;&nbsp;&nbsp; ${title}</td><td>${amount.toLocaleString()}</td></tr>` : ''
+                ).join('')}
+                <tr><td><strong>Total Assets</strong></td><td><strong>${(Object.values(currentAssets).reduce((a, b) => a + b, 0) + Object.values(nonCurrentAssets).reduce((a, b) => a + b, 0)).toLocaleString()}</strong></td></tr>
+                
+                <tr><th>Liabilities and Owner's Equity</th><th>Amount</th></tr>
+                <tr><td>Current Liabilities</td><td></td></tr>
+                ${Object.entries(currentLiabilities).map(([title, amount]) => 
+                    amount > 0 ? `<tr><td>&nbsp;&nbsp;&nbsp; ${title}</td><td>${amount.toLocaleString()}</td></tr>` : ''
+                ).join('')}
+                <tr><td><strong>Total Liabilities</strong></td><td><strong>${Object.values(currentLiabilities).reduce((a, b) => a + b, 0).toLocaleString()}</strong></td></tr>
+                <tr><td>Owner's Equity</td><td>${ownerEquity.toLocaleString()}</td></tr>
+                <tr><td><strong>Total Liabilities and Owner's Equity</strong></td><td><strong>${(Object.values(currentLiabilities).reduce((a, b) => a + b, 0) + ownerEquity).toLocaleString()}</strong></td></tr>
+            </table>`;
+        }
+        function displayIncomeStatement(income, expenses, netIncome) {
+            let incomeStatementDiv = document.getElementById("balanceSheet");
+
+            let revenueAccount = "Professional Income";
+            let expenseAccounts = ["Rent Expense", "Utilities Expense", "Salaries Expense", "Taxes and Licenses"];
+
+            let totalRevenue = accounts[revenueAccount]?.credit || 0;
+
+            let totalExpenses = expenseAccounts.reduce((sum, account) => {
+                return sum + (accounts[account]?.debit || 0);
+            }, 0);
+
+            let adjustedNetIncome = totalRevenue - totalExpenses;
+
+            incomeStatementDiv.innerHTML += `
+                <h3>Statement of Comprehensive Income (SCI)</h3>
+                <table>
+                    <tr><th>Revenues</th><td>${totalRevenue.toLocaleString()}</td></tr>
+                    <tr><td>&nbsp;&nbsp;&nbsp; ${revenueAccount}</td><td>${totalRevenue.toLocaleString()}</td></tr>
+                    <tr><th>Expenses</th><td>${totalExpenses.toLocaleString()}</td></tr>
+                    ${expenseAccounts.map(account => `
+                        <tr><td>&nbsp;&nbsp;&nbsp; ${account}</td><td>${(accounts[account]?.debit || 0).toLocaleString()}</td></tr>
+                    `).join('')}
+                    <tr><th>Profit(Loss)</th><td>${adjustedNetIncome.toLocaleString()}</td></tr>
+                </table>`;
+
+            let initialInvestment = accounts["L. Chun, Capital"]?.credit || 0;
+            let drawing = accounts["L. Chun, Drawing"]?.debit || 0;
+            let endCapital = initialInvestment + adjustedNetIncome - drawing;
+
+            incomeStatementDiv.innerHTML += `
+                <table>
+                    <tr><td>Initial Investment</td><td>${initialInvestment.toLocaleString()}</td></tr>
+                    <tr><td>Add: Profit(Loss)</td><td>${adjustedNetIncome.toLocaleString()}</td></tr>
+                    <tr><td>Total</td><td>${(initialInvestment + adjustedNetIncome).toLocaleString()}</td></tr>
+                    <tr><td>Less: Drawing</td><td>${drawing.toLocaleString()}</td></tr>
+                    <tr><td><strong>Ending of L. Chun, Capital</strong></td><td><strong>${endCapital.toLocaleString()}</strong></td></tr>
+                </table>`;
+        }
+
+</script>
+        
+</body>
+</html>
