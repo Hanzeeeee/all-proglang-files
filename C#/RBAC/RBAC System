@@ -1,0 +1,238 @@
+using System;
+using System.Collections.Generic;
+
+class User
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string MiddleName { get; set; }
+    public string ContactNumber { get; set; }
+    public string Email { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
+    public string Role { get; set; }
+
+    public User(string firstName, string lastName, string middleName, string contactNumber, string email, string username, string password, string role)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        MiddleName = middleName;
+        ContactNumber = contactNumber;
+        Email = email;
+        Username = username;
+        Password = password;
+        Role = role;
+    }
+}
+
+class Token
+{
+    public string AuthToken { get; set; }
+
+    public Token(string password, string username)
+    {
+        AuthToken = ReverseString(password) + username;
+    }
+
+    private string ReverseString(string input)
+    {
+        char[] array = input.ToCharArray();
+        Array.Reverse(array);
+        return new string(array);
+    }
+}
+
+class SystemControl
+{
+    private List<User> users = new List<User>();
+    private User loggedInUser = null;
+    private Token userToken = null;
+    private int failedLoginAttempts = 0;
+
+    public SystemControl()
+    {
+        users.Add(new User("Admin", "User", "", "123456789", "adminuser@gmail.com", "admin", "admin123", "Admin"));
+        users.Add(new User("Hanzen", "Rallos", "A", "987654321", "hanzenrallos@gmail.com", "Hanzen", "user123", "User"));
+    }
+
+    public void Register(string firstName, string lastName, string middleName, string contactNumber, string email, string username, string password, string role)
+    {
+        foreach (var user in users)
+        {
+            if (user.Email == email)
+            {
+                Console.WriteLine("Email is already in use.");
+                return;
+            }
+
+            if (user.Username == username)
+            {
+                Console.WriteLine("Username is already in use.");
+                return;
+            }
+        }
+
+        users.Add(new User(firstName, lastName, middleName, contactNumber, email, username, password, role));
+        Console.WriteLine("Registration successful!");
+    }
+
+    public bool Login(string username, string password)
+    {
+        foreach (var user in users)
+        {
+            if (user.Username == username && user.Password == password)
+            {
+                loggedInUser = user;
+                userToken = new Token(password, username);
+                failedLoginAttempts = 0;
+                Console.WriteLine("Login successful!");
+                return true;
+            }
+        }
+
+        failedLoginAttempts++;
+        Console.WriteLine(failedLoginAttempts == 3 ? "3 failed attempts. Exiting." : "Invalid login details.");
+        
+        if (failedLoginAttempts >= 3) Environment.Exit(0);
+        return false;
+    }
+
+    public void ShowMainMenu()
+    {
+        if (loggedInUser == null)
+        {
+            Console.WriteLine("You must login first.");
+            return;
+        }
+
+        Console.WriteLine($"Welcome, {loggedInUser.FirstName}!");
+        Console.WriteLine("1. View Profile");
+        Console.WriteLine("2. View All Profiles (Admin only)");
+        Console.WriteLine("3. Change Password");
+        Console.WriteLine("4. Logout");
+
+        string choice = Console.ReadLine();
+        switch (choice)
+        {
+            case "1":
+                ViewProfile();
+                break;
+            case "2":
+                ViewAllProfiles();
+                break;
+            case "3":
+                ChangePassword();
+                break;
+            case "4":
+                Logout();
+                break;
+            default:
+                Console.WriteLine("Invalid choice. Try again.");
+                break;
+        }
+    }
+
+    private void ViewProfile()
+    {
+        Console.WriteLine($"Name: {loggedInUser.FirstName} {loggedInUser.LastName}");
+        Console.WriteLine($"Username: {loggedInUser.Username}");
+        Console.WriteLine($"Email: {loggedInUser.Email}");
+        Console.WriteLine($"Role: {loggedInUser.Role}");
+    }
+
+    private void ViewAllProfiles()
+    {
+        if (loggedInUser.Role != "Admin")
+        {
+            Console.WriteLine("Access Denied: This feature is for Admins only!");
+            return;
+        }
+
+        foreach (var user in users)
+        {
+            Console.WriteLine($"{user.FirstName} {user.LastName} - {user.Role}");
+        }
+    }
+
+    private void ChangePassword()
+    {
+        Console.WriteLine("Enter old password:");
+        string oldPassword = Console.ReadLine();
+        if (loggedInUser.Password != oldPassword)
+        {
+            Console.WriteLine("Incorrect old password.");
+            return;
+        }
+
+        Console.WriteLine("Enter new password:");
+        string newPassword = Console.ReadLine();
+        loggedInUser.Password = newPassword;
+
+        userToken = new Token(newPassword, loggedInUser.Username);
+        Console.WriteLine("Password changed successfully.");
+    }
+
+    private void Logout()
+    {
+        loggedInUser = null;
+        userToken = null;
+        Console.WriteLine("You have logged out successfully.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        SystemControl system = new SystemControl();
+        
+        while (true)
+        {
+            Console.WriteLine("Choose an option:");
+            Console.WriteLine("1. Login");
+            Console.WriteLine("2. Register");
+            Console.WriteLine("3. Exit");
+            string option = Console.ReadLine();
+            
+            switch (option)
+            {
+                case "1":
+                    Console.WriteLine("Enter username:");
+                    string username = Console.ReadLine();
+                    Console.WriteLine("Enter password:");
+                    string password = Console.ReadLine();
+                    if (system.Login(username, password))
+                    {
+                        system.ShowMainMenu();
+                    }
+                    break;
+                case "2":
+                    Console.WriteLine("Enter First Name:");
+                    string firstName = Console.ReadLine();
+                    Console.WriteLine("Enter Last Name:");
+                    string lastName = Console.ReadLine();
+                    Console.WriteLine("Enter Middle Name (Optional):");
+                    string middleName = Console.ReadLine();
+                    Console.WriteLine("Enter Contact Number:");
+                    string contact = Console.ReadLine();
+                    Console.WriteLine("Enter Email:");
+                    string email = Console.ReadLine();
+                    Console.WriteLine("Enter Username:");
+                    string newUsername = Console.ReadLine();
+                    Console.WriteLine("Enter Password:");
+                    string newPassword = Console.ReadLine();
+                    Console.WriteLine("Enter Role (User/Admin):");
+                    string role = Console.ReadLine();
+                    system.Register(firstName, lastName, middleName, contact, email, newUsername, newPassword, role);
+                    break;
+                case "3":
+                    Console.WriteLine("Exiting...");
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Try again.");
+                    break;
+            }
+        }
+    }
+}
