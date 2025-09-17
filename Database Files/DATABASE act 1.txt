@@ -1,0 +1,17 @@
+1.) SELECT name, age, salary, salary_2020_01, salary_2020_06, salary_2021_01, salary_2021_06, salary_2022_01
+   FROM employees
+   WHERE age BETWEEN 30 AND 40
+  AND department IN ('Accounting', 'Human Resource')
+  AND salary_2020_01 > salary
+  AND salary_2020_06 > salary_2020_01
+  AND salary_2021_01 > salary_2020_06
+  AND salary_2021_06 > salary_2021_01
+  AND salary_2022_01 > salary_2021_06;
+
+2.) SELECT name, birthday, expected_salary
+     FROM employees
+     WHERE MONTH(birthday) = 8;
+
+3.) UPDATE employees
+    SET salary = salary * 1.10
+    WHERE department = 'Marketing';
