@@ -1,8 +1,0 @@
-Z:\NN721\TotalPoints\bin\Debug\TotalPoints.exe.config
-Z:\NN721\TotalPoints\bin\Debug\TotalPoints.exe
-Z:\NN721\TotalPoints\bin\Debug\TotalPoints.pdb
-Z:\NN721\TotalPoints\obj\Debug\TotalPoints.csproj.AssemblyReference.cache
-Z:\NN721\TotalPoints\obj\Debug\TotalPoints.csproj.CoreCompileInputs.cache
-Z:\NN721\TotalPoints\obj\Debug\TotalPoints.exe
-Z:\NN721\TotalPoints\obj\Debug\TotalPoints.pdb
-Z:\NN721\TotalPoints\obj\Debug\TotalPoints.exe.config
