@@ -34,7 +34,7 @@ namespace EmployeeSalary
         {
             return $"Employee Name: {Name}\n" +
                    $"Hours Worked: {HoursWorked}\n" +
-                   $"\n{Name}`s Salary is {ComputeSalary():F2}";
+                   $"\n{Name}`s Salary is {ComputeSalary():N2}";
         }
         public void display()
         {
@@ -43,3 +43,4 @@ namespace EmployeeSalary
     }
 
 }
+
