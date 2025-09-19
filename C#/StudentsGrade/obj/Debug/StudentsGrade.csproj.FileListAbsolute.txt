@@ -1,8 +1,0 @@
-Z:\NN721\StudentsGrade\bin\Debug\StudentsGrade.exe.config
-Z:\NN721\StudentsGrade\bin\Debug\StudentsGrade.exe
-Z:\NN721\StudentsGrade\bin\Debug\StudentsGrade.pdb
-Z:\NN721\StudentsGrade\obj\Debug\StudentsGrade.csproj.AssemblyReference.cache
-Z:\NN721\StudentsGrade\obj\Debug\StudentsGrade.csproj.CoreCompileInputs.cache
-Z:\NN721\StudentsGrade\obj\Debug\StudentsGrade.exe
-Z:\NN721\StudentsGrade\obj\Debug\StudentsGrade.pdb
-Z:\NN721\StudentsGrade\obj\Debug\StudentsGrade.exe.config
