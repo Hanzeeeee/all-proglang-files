@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -34,25 +34,7 @@ namespace TwoNumbers
         }
 
 
-        public static void Main(string[] args)
-        {
-
-            int num1, num2;
-            int result = 0;
-
-            Console.WriteLine("input first number: ");
-               num1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("input second number:");
-                num2 = Convert.ToInt32(Console.ReadLine());
-          
-               
-
-            TwoNumbers total = new TwoNumbers(num1, num2, result);
-            total.computeSum();
-            total.displaySum();
-
-
-        }
+   
 
 
 
