@@ -1,0 +1,3 @@
+def area(length, width):
+    """Return the area of a rectangle (length × width)."""
+    return length * width
